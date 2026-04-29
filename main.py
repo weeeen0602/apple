@@ -7,22 +7,33 @@ load_dotenv()
 
 def main():
     api_key=os.getenv("OPENAI_API_KEY")
-    print(api_key)
+    base_url=os.getenv("BASE_URL")
+    model=os.getenv("MODEL_NAME")
+    
     ab="apple"
     print(f"歡迎使用{ab}")
     if api_key:
         print("API key is set")
-        llm = ChatOpenAI(
-            model="gemma4:26b",
-            base_url="http://203.71.78.31:8000/v1",
-            api_key=api_key,
-            temperature=0.0,
-        )
-        print("LLM 已成功初始化")
     else:
         print("API key is not set")
         return 
     
+    llm = ChatOpenAI(
+            model=model,
+            base_url=base_url,
+            api_key=api_key,
+            temperature=0.0,
+        )
+    
+    message = "hello,how are you?"
+    print(f"使用者\n {message}")
+    
+    response = llm.invoke(message)
+    print(f"AI\n {response.content}")
+    
+
+    
+
 
 if __name__ == "__main__":
     main()
