@@ -13,7 +13,7 @@ def main():
         print("API key is  set")
     else:
         print("API key is not set")
-
+        return 
     
 
 if __name__ == "__main__":
