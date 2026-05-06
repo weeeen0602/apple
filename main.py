@@ -1,11 +1,19 @@
 import os
+import sys
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, AIMessage
 load_dotenv()
 
 
 
 def main():
+    if sys.platform == "win32":
+        try:
+            sys.stdin.reconfigure(encoding='utf-8')
+            sys.stdout.reconfigure(encoding='utf-8')
+        except Exception:
+            pass
     api_key=os.getenv("OPENAI_API_KEY")
     base_url=os.getenv("BASE_URL")
     model=os.getenv("MODEL_NAME")
@@ -24,15 +32,22 @@ def main():
         temperature=0.0,
     )
 
+    history = []
     while True:
         user_message = input("使用者: ")
         if user_message.lower().strip() == "break":
             break
         
+        history.append(HumanMessage(content=user_message))
+        
         print("AI: ", end="", flush=True)
-        for chunk in llm.stream(user_message):
+        full_response = ""
+        for chunk in llm.stream(history):
             print(chunk.content, end="", flush=True)
+            full_response += chunk.content
         print("\n")
+        
+        history.append(AIMessage(content=full_response))
     
 
     
