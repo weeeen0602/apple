@@ -17,19 +17,20 @@ def main():
     else:
         print("API key is not set")
         return 
-    
     llm = ChatOpenAI(
-            model=model,
-            base_url=base_url,
-            api_key=api_key,
-            temperature=0.0,
-        )
-    
-    message = "hello,how are you?"
-    print(f"使用者\n {message}")
-    
-    response = llm.invoke(message)
-    print(f"AI\n {response.content}")
+        model=model,
+        base_url=base_url,
+        api_key=api_key,
+        temperature=0.0,
+    )
+
+    while True:
+        user_message = input("使用者: ")
+        if user_message.lower() == " break":
+            break
+        
+        response = llm.invoke(user_message) 
+        print(f"AI\n {response.content}\n")
     
 
     
