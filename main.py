@@ -26,11 +26,13 @@ def main():
 
     while True:
         user_message = input("使用者: ")
-        if user_message.lower() == " break":
+        if user_message.lower().strip() == "break":
             break
         
-        response = llm.invoke(user_message) 
-        print(f"AI\n {response.content}\n")
+        print("AI: ", end="", flush=True)
+        for chunk in llm.stream(user_message):
+            print(chunk.content, end="", flush=True)
+        print("\n")
     
 
     
