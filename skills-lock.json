@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "docx": {
+      "source": "mz038197/vanscoding-skills",
+      "sourceType": "github",
+      "skillPath": "Documents/word/SKILL.md",
+      "computedHash": "e62f62bb4ba4f5512d70ac812d3a31ffd0ec9f7d0101a8901d21ce12947e3a16"
+    }
+  }
+}
