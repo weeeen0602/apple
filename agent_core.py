@@ -540,12 +540,12 @@ def _keep_image_only_on_current_human(messages: list[BaseMessage]) -> list[BaseM
 
 
 def get_token_budget() -> int:
-    raw = os.getenv("TOKEN_BUDGET", "100000")
+    raw = os.getenv("TOKEN_BUDGET", "200000")
     try:
         n = int(raw)
-        return n if n > 0 else 100000
+        return n if n > 0 else 200000
     except ValueError:
-        return 100000
+        return 200000
 
 
 def estimate_message_tokens(message: BaseMessage) -> int:
@@ -1121,8 +1121,7 @@ class Agent:
         )
         llm = ChatOpenAI(
             model=os.getenv("OPENAI_MODEL", "gpt-5.4-mini"),
-            base_url=os.getenv("OPENAI_BASE_URL") or None,
-            openai_api_key=os.getenv("OPENAI_API_KEY"),
+            api_key=os.getenv("OPENAI_API_KEY"),
             temperature=0.2,
         )
         llm_tools = llm.bind_tools(TOOLS)
