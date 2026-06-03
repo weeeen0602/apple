@@ -160,3 +160,10 @@ cython_debug/
 Thumbs.db
 *.swp
 *.bak
+
+# Agent Studio runtime state
+studio_shell/.agent_core_activated
+studio_shell/sessions/
+studio_shell/uploads/
+studio_shell/workspace/
+studio_shell/scripts/
