@@ -167,3 +167,4 @@ studio_shell/sessions/
 studio_shell/uploads/
 studio_shell/workspace/
 studio_shell/scripts/
+!studio_shell/scripts/fetch_movie_posters.py
