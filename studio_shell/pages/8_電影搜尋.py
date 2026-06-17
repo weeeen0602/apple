@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import random
 import sys
 from pathlib import Path
 
@@ -14,6 +15,7 @@ from studio_shell.page_shell import page_shell
 from studio_shell.shell_ui import inject_style
 
 POSTER_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "movie_posters.json"
+FAVORITES_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "movie_favorites.json"
 if POSTER_DATA_PATH.exists():
     POSTER_MAP = json.loads(POSTER_DATA_PATH.read_text(encoding="utf-8"))
 else:
@@ -21,6 +23,38 @@ else:
 
 PLACEHOLDER_POSTER = "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1"
 SHOW_PLACEHOLDER_POSTER = False
+SORT_OPTIONS = {
+    "最新上映": lambda movie: (-movie["year"], movie["title"]),
+    "最早上映": lambda movie: (movie["year"], movie["title"]),
+    "片名 A→Z": lambda movie: movie["title"],
+    "片名 Z→A": lambda movie: movie["title"],
+    "類型": lambda movie: (movie["genre"], -movie["year"], movie["title"]),
+}
+
+# ---------------------------------------------------------------------------
+# 新增篩選：影片時長（分鐘）
+# ---------------------------------------------------------------------------
+# 假設每部電影資料中可能會有 `duration` 欄位（單位：分鐘）。若不存在，預設為 0，
+# 這樣在預設範圍 (0, 300) 時不會過濾掉任何項目。
+DEFAULT_DURATION_RANGE = (0, 300)  # 分鐘
+
+# ---------------------------------------------------------------------------
+# 新增情境篩選：心情與陪伴對象
+# ---------------------------------------------------------------------------
+# 這些映射僅使用現有的 genre 欄位做簡易判斷，避免改動資料模型。
+MOOD_FILTERS = {
+    "😌 想放鬆": ["溫馨", "喜劇", "動畫"],
+    "🧠 想燒腦": ["懸疑", "驚悚", "犯罪"],
+    "😱 不要恐怖": "exclude_horror",  # 特殊排除類型
+    "💞 親子同看": ["家庭", "動畫"],
+}
+
+COMPANION_FILTERS = {
+    "👨‍👩‍👧‍👦 親子同看": ["家庭", "動畫"],
+    "👫 情侶約會": ["愛情", "劇情"],
+    "👯 朋友聚會": ["喜劇", "動作"],
+    "🧘 一個人靜看": ["劇情", "溫馨", "懸疑"],
+}
 
 st.set_page_config(page_title="電影搜尋", page_icon="🎬", layout="wide")
 inject_style()
@@ -57,6 +91,43 @@ MOVIES = [
     {"title": "山中森林", "genre": "犯罪", "year": 2023, "intro": "生哥出獄後試圖重新站穩腳步，但過去的人脈、酒吧生態與幫派糾葛讓他很難真正抽身。電影除了有江湖感，也花不少篇幅描寫角色之間的情義、背叛與情感需求。"},
     {"title": "惡女", "genre": "懸疑", "year": 2023, "intro": "一起看似單純的案件，讓記者與當事人之間逐漸形成危險又曖昧的拉扯。電影從外貌、媒體與慾望切入，讓觀眾不斷懷疑誰在操控誰，但不會太快給出答案。"},
     {"title": "還錢", "genre": "喜劇", "year": 2024, "intro": "幾個原本就不太可靠的人，因為一筆錢而被迫展開混亂行動，每個人的盤算都不太一樣。電影主打群戲互動與節奏感，笑點多來自角色之間的失誤與臨場反應。"},
+    {"title": "腦筋急轉彎2", "genre": "動畫", "year": 2024, "intro": "萊莉進入青春期後，腦內情緒總部迎來全新成員，原本熟悉的快樂、憂憂、怒怒、厭厭與驚驚也被迫重新適應變化。電影延續前作創意，把成長焦慮與自我認同拍得既熱鬧又真實。"},
+    {"title": "死侍與金鋼狼", "genre": "動作", "year": 2024, "intro": "嘴砲不停的死侍這次和金鋼狼正式搭檔，面對更大規模的危機與跨宇宙混亂。電影結合瘋狂動作、黑色幽默與大量角色互嗆，節奏非常直接。"},
+    {"title": "沙丘：第二部", "genre": "科幻", "year": 2024, "intro": "保羅在沙漠中逐漸成為預言中的關鍵人物，也必須在愛情、復仇與命運之間做出選擇。電影延續壯闊世界觀與史詩感，場面、信仰與權力衝突都更進一步。"},
+    {"title": "破·地獄", "genre": "劇情", "year": 2024, "intro": "失意的婚禮策劃師轉行當上葬禮經紀人後，和傳統喃嘸師傅之間逐漸從衝突走向理解。電影把死亡儀式、家庭關係與人生轉折放在一起，情感濃度很高。"},
+    {"title": "風之谷", "genre": "動畫", "year": 2025, "intro": "在人類文明崩壞後的世界裡，娜烏西卡努力理解腐海、蟲族與人類之間的緊張關係。電影以宏大世界觀和深刻環境寓意著稱，也保有動人的冒險與成長核心。"},
+    {"title": "再見機器人", "genre": "動畫", "year": 2024, "intro": "一隻孤單的小狗和機器人建立深厚友情，卻因一場意外被迫分離。電影幾乎不靠對白，卻用畫面和音樂把陪伴、失去與想念講得非常動人。"},
+    {"title": "荒野機器人", "genre": "動畫", "year": 2024, "intro": "流落荒島的機器人羅茲，必須在完全陌生的自然環境中學會生存，也慢慢和動物們建立關係。電影把冒險、親情與成長結合得很溫暖，畫面風格也很鮮明。"},
+    {"title": "異形：羅穆路斯", "genre": "科幻", "year": 2024, "intro": "一群年輕太空殖民者登上一座廢棄太空站後，意外喚醒潛伏其中的恐怖生物。電影回到系列最擅長的密閉空間驚悚感，也保留異形宇宙的殘酷壓迫氣氛。"},
+    {"title": "功夫熊貓4", "genre": "動畫", "year": 2024, "intro": "阿波再次被推向新的責任，不只要面對強敵，也得思考自己接下來該如何成為真正的精神領袖。電影延續系列一貫的幽默、動作與成長主題。"},
+    {"title": "神偷奶爸4", "genre": "動畫", "year": 2024, "intro": "格魯一家迎來新成員後，生活變得更加混亂，同時也再次被捲進危險任務。電影保有系列招牌的搞笑節奏、小小兵魅力與家庭互動。"},
+    {"title": "名偵探柯南：100萬美元的五稜星", "genre": "動畫", "year": 2024, "intro": "怪盜基德把目標鎖定在北海道函館的一把神祕名刀，柯南與服部平次也因此捲入新的事件。電影結合推理、動作與系列角色魅力，是很穩定的熱門院線作品。"},
+    {"title": "猩球崛起：王國誕生", "genre": "科幻", "year": 2024, "intro": "凱撒時代過去多年後，猿類社會與人類殘存勢力之間出現新的權力變化。一隻年輕猿猴踏上旅程，也逐漸面對足以改變兩族命運的選擇。"},
+    {"title": "哥吉拉與金剛：新帝國", "genre": "動作", "year": 2024, "intro": "兩大怪獸再次聯手面對更深層地心世界中的巨大威脅。電影主打龐大怪獸場面、視覺奇觀與高密度的破壞系娛樂感。"},
+    {"title": "變形金剛：源起", "genre": "動畫", "year": 2024, "intro": "故事回到柯博文與密卡登還是朋友的年代，描寫兩人如何走向最終對立。電影把賽博坦起源、友情崩解與變形金剛宇宙歷史重新整理給觀眾。"},
+    {"title": "音速小子3", "genre": "動畫", "year": 2024, "intro": "索尼克、塔爾斯與納克魯斯再度並肩作戰，這次面對的是能力更危險的夏特。電影延續系列的高速動作、電玩感與家庭向娛樂節奏。"},
+    {"title": "魔法壞女巫", "genre": "奇幻", "year": 2024, "intro": "故事回到《綠野仙蹤》之前，聚焦兩位性格截然不同的女孩如何成為命運交纏的好友與對手。電影結合音樂劇能量、奇幻世界觀與角色情感張力。"},
+    {"title": "白雪公主", "genre": "奇幻", "year": 2025, "intro": "迪士尼真人版重新詮釋經典童話，描寫白雪公主與邪惡皇后之間的對立，以及她重新找回勇氣與主動性的過程。電影走華麗視覺與童話冒險路線。"},
+    {"title": "美國隊長：無畏新世界", "genre": "動作", "year": 2025, "intro": "山姆威爾森正式扛起美國隊長之名後，立刻捲入新的國際危機與政治陰謀。電影主打英雄接班、地緣衝突與漫威宇宙延伸發展。"},
+    {"title": "MINECRAFT麥塊電影", "genre": "奇幻", "year": 2025, "intro": "一群性格各異的人被拉進方塊世界，必須學會在主世界中生存、合作並找出回家的方法。電影把遊戲創造力、冒險感與家庭娛樂元素結合在一起。"},
+    {"title": "海洋奇緣2", "genre": "動畫", "year": 2024, "intro": "莫娜在全新召喚下再次出海，前往更遙遠也更危險的海域，尋找和族人命運有關的答案。電影延續系列的海洋冒險、音樂與成長主題。"},
+    {"title": "小丑：雙重瘋狂", "genre": "驚悚", "year": 2024, "intro": "亞瑟在新的處境中遇見哈莉奎茵，兩人之間危險又扭曲的關係逐步成形。電影延續前作的不安感，這次更混合音樂、心理崩解與角色迷戀。"},
+    {"title": "角頭－大橋頭", "genre": "犯罪", "year": 2024, "intro": "《角頭》系列再度回到幫派地盤與權力角力的世界，麥可哥帶著更強烈的企圖心回歸。電影延續系列的兄弟情、地盤衝突與黑道氣場。"},
+    {"title": "喵的奇幻漂流", "genre": "動畫", "year": 2025, "intro": "黑貓在洪水淹沒世界後，和其他動物一起搭船展開漂流旅程。電影幾乎不靠對白，卻用影像和節奏把末世感、合作與孤獨拍得很動人。"},
+    {"title": "吸血鬼：諾斯費拉圖", "genre": "恐怖", "year": 2025, "intro": "一名年輕女子與神祕吸血鬼之間產生危險而病態的連結，進而引發一連串恐怖事件。電影走濃厚哥德風格，氣氛陰冷且壓迫感很強。"},
+    {"title": "巴布狄倫：搖滾詩人", "genre": "音樂", "year": 2025, "intro": "電影聚焦巴布狄倫年輕時期的創作與成名歷程，描寫他如何從民謠場景中逐漸改寫流行文化。作品結合音樂傳記、時代氛圍與個人選擇。"},
+    {"title": "台北追緝令", "genre": "動作", "year": 2024, "intro": "美國探員與過去戀人因一場追緝任務在台北再度相遇，並被捲入更大的犯罪陰謀。電影結合都會動作、追車場面與舊情重燃的張力。"},
+    {"title": "懼裂", "genre": "驚悚", "year": 2024, "intro": "一名中年女星為了對抗年齡焦慮，使用神祕物質創造出更年輕的自己，卻引發身體與人格失控。電影把容貌焦慮與肉體恐怖結合得非常強烈。"},
+    {"title": "艾諾拉", "genre": "劇情", "year": 2024, "intro": "來自布魯克林的年輕女子意外嫁給富豪之子，以為迎來童話般轉機，卻很快被現實與權力拉回地面。電影兼具黑色幽默、情感波動與階級衝突。"},
+    {"title": "絕地戰警：生死與共", "genre": "動作", "year": 2024, "intro": "邁阿密老搭檔再次出動，這回不只查案，還得面對自己成為被追捕目標的局面。電影延續系列招牌的嘴砲互動、爆破與高節奏追逐。"},
+    {"title": "神鬼戰士II", "genre": "動作", "year": 2024, "intro": "多年後的羅馬競技場再度成為命運決鬥之地，新角色被迫回到權力與暴力中心。電影延續史詩場面、復仇情緒與古典戰爭氛圍。"},
+    {"title": "噤界：入侵日", "genre": "恐怖", "year": 2024, "intro": "故事回到外星怪物首次入侵地球的那一天，城市在極短時間內陷入全面恐慌。電影維持系列最鮮明的『聲音即危險』設定，也把災難規模拉得更大。"},
+    {"title": "猛毒最終章：最後一舞", "genre": "動作", "year": 2024, "intro": "艾迪與猛毒在逃亡中面對最後一場巨大危機，也逼近彼此關係的終點。電影延續系列的怪奇動作與黑色幽默，同時強調結局感。"},
+    {"title": "獅子王：木法沙", "genre": "動畫", "year": 2024, "intro": "透過回述方式描寫木法沙年輕時的成長、友情與走向王者之路的過程。電影延伸《獅子王》世界觀，也強調家族命運與傳承。"},
+    {"title": "魔戒：洛汗人之戰", "genre": "動畫", "year": 2024, "intro": "故事回到《魔戒》之前，聚焦洛汗王族與號角堡的古老傳說。電影把中土世界的史詩感與動畫敘事結合，補足經典背景故事。"},
+    {"title": "雷霆特攻隊＊", "genre": "動作", "year": 2025, "intro": "一群立場灰色、各懷傷痕的反英雄被迫組隊執行高風險任務。電影主打不穩定團隊關係、黑色任務氛圍與漫威宇宙的另類小隊魅力。"},
+    {"title": "馴龍高手", "genre": "奇幻", "year": 2025, "intro": "真人版重新演繹小嗝嗝與沒牙之間的友情，描寫他如何打破族人與龍之間長久對立。電影保留原作核心的冒險、成長與情感重量。"},
+    {"title": "不可能的任務：最終清算", "genre": "動作", "year": 2025, "intro": "伊森韓特再次面對攸關全球局勢的任務，也被迫處理一路走來累積的代價與選擇。電影延續系列的大場面實拍特技與諜報緊張感。"},
     {"title": "鬼才之道", "genre": "奇幻", "year": 2024, "intro": "故事把鬼界設定成帶有競爭感的舞台，一群角色得在規則與表現中努力證明自己。電影風格創新又有想像力，在熱鬧外表下，也藏著對自我價值的追問。"},
     {"title": "愛的噩夢", "genre": "愛情", "year": 2024, "intro": "主角在愛情與現實之間逐漸分不清界線，夢境般的氛圍讓整段關係顯得既迷人又不安。電影比較像情感迷宮，重點在角色如何理解自己真正想抓住的是什麼。"},
     {"title": "青春18x2 通往有你的旅程", "genre": "愛情", "year": 2024, "intro": "Jimmy因為一段青春記憶，再次踏上與Ami有關的旅程，沿途重新面對那些曾經以為已經過去的情感。電影用旅行串起回憶與現在，氣氛溫柔，也帶著淡淡遺憾。"},
@@ -277,26 +348,238 @@ MOVIES = [
     {"title": "電影版教場：驪歌", "genre": "懸疑", "year": 2026, "intro": "警察學校背景下再次出現壓力與謎團交織的事件，角色們在紀律、真相與人性之間做出選擇。電影延續系列冷峻氛圍，懸疑感與人物張力都很強。"},
 ]
 
-def render_main() -> str:
-    st.title("🎬 台灣近五年電影搜尋")
-    st.write("輸入片名或選擇類型，搜尋近五年在台灣上映的電影。")
 
-    keyword = st.text_input("搜尋電影名稱", placeholder="例如：鬼、愛情、青春")
-    genres = ["全部"] + sorted({movie["genre"] for movie in MOVIES})
-    selected_genre = st.selectbox("選擇電影類型", genres)
+def load_favorite_titles_from_disk() -> list[str]:
+    if not FAVORITES_DATA_PATH.exists():
+        return []
+
+    try:
+        data = json.loads(FAVORITES_DATA_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+
+    if not isinstance(data, list):
+        return []
+
+    valid_titles = {movie["title"] for movie in MOVIES}
+    return [title for title in data if isinstance(title, str) and title in valid_titles]
+
+
+def persist_favorite_titles(favorites: list[str]) -> None:
+    FAVORITES_DATA_PATH.write_text(
+        json.dumps(favorites, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def get_favorite_titles() -> list[str]:
+    if "movie_favorites" not in st.session_state:
+        st.session_state["movie_favorites"] = load_favorite_titles_from_disk()
+
+    favorites = st.session_state.setdefault("movie_favorites", [])
+    if not isinstance(favorites, list):
+        favorites = list(favorites)
+        st.session_state["movie_favorites"] = favorites
+    return favorites
+
+
+def toggle_favorite(title: str) -> None:
+    favorites = get_favorite_titles()
+    if title in favorites:
+        favorites.remove(title)
+    else:
+        favorites.append(title)
+    persist_favorite_titles(favorites)
+
+
+def clear_favorites() -> None:
+    favorites = get_favorite_titles()
+    favorites.clear()
+    persist_favorite_titles(favorites)
+
+
+def sort_movies(movies: list[dict[str, str | int]], sort_label: str) -> list[dict[str, str | int]]:
+    if sort_label == "片名 Z→A":
+        return sorted(movies, key=lambda movie: movie["title"], reverse=True)
+    return sorted(movies, key=SORT_OPTIONS[sort_label])
+
+
+def get_movie_duration(movie: dict[str, str | int]) -> int | None:
+    """回傳片長（分鐘）。優先讀 movie 本身，其次讀海報 metadata。"""
+    raw = movie.get("duration")
+    if isinstance(raw, int) and raw > 0:
+        return raw
+
+    poster_info = POSTER_MAP.get(str(movie["title"]), {})
+    poster_duration = poster_info.get("duration")
+    if isinstance(poster_duration, int) and poster_duration > 0:
+        return poster_duration
+
+    return None
+
+
+def get_available_duration_bounds(movies: list[dict[str, str | int]]) -> tuple[int, int] | None:
+    durations = [duration for movie in movies if (duration := get_movie_duration(movie)) is not None]
+    if not durations:
+        return None
+    return min(durations), max(durations)
+
+
+def is_duration_filter_active(
+    selected_duration_range: tuple[int, int], duration_bounds: tuple[int, int] | None
+) -> bool:
+    if not duration_bounds:
+        return False
+    return tuple(selected_duration_range) != tuple(duration_bounds)
+
+
+def pick_random_movie(movies: list[dict[str, str | int]]) -> dict[str, str | int] | None:
+    if not movies:
+        return None
+    return random.choice(movies)
+
+
+def render_main() -> str:
+    favorites = get_favorite_titles()
+    years = [movie["year"] for movie in MOVIES]
+    min_year = min(years)
+    max_year = max(years)
+    duration_bounds = get_available_duration_bounds(MOVIES)
+    missing_duration_count = sum(1 for movie in MOVIES if get_movie_duration(movie) is None)
+
+    st.write("輸入片名或選擇類型，搜尋近五年在台灣上映的電影。")
+    st.markdown("#### 搜尋設定")
+    with st.container(border=True):
+        st.markdown("**基本搜尋**")
+        keyword = st.text_input("搜尋電影名稱", placeholder="例如：鬼、愛情、青春")
+
+        genres = ["全部"] + sorted({movie["genre"] for movie in MOVIES})
+        selected_genre = st.selectbox("選擇電影類型", genres)
+
+        # 新增情境篩選 UI
+        mood_options = ["不篩選"] + list(MOOD_FILTERS.keys())
+        selected_mood = st.radio("現在的心情／觀影需求", mood_options, index=0)
+
+        companion_options = ["不篩選"] + list(COMPANION_FILTERS.keys())
+        selected_companion = st.radio("和誰一起看？", companion_options, index=0)
+
+    with st.container(border=True):
+        st.markdown("**進階篩選**")
+        selected_sort = st.selectbox("排序方式", list(SORT_OPTIONS.keys()))
+        selected_year_range = st.slider("上映年份", min_year, max_year, (min_year, max_year))
+        if duration_bounds:
+            selected_duration_range = st.slider(
+                "影片時長（分鐘）",
+                duration_bounds[0],
+                duration_bounds[1],
+                duration_bounds,
+                help="可依電影片長篩選。若尚未調整區間，沒有片長資料的電影仍會保留。",
+            )
+            if missing_duration_count:
+                st.caption(
+                    f"目前仍有 {missing_duration_count} 部電影沒有片長資料；"
+                    "只有在你主動縮限時長區間時，這些電影才會被排除。"
+                )
+        else:
+            selected_duration_range = DEFAULT_DURATION_RANGE
+            st.caption("目前資料沒有可用的片長資訊，因此暫時無法啟用時長篩選。")
+        favorites_only = st.checkbox("只看收藏")
+
+    duration_filter_active = is_duration_filter_active(
+        selected_duration_range, duration_bounds
+    )
 
     results = []
-    for movie in reversed(MOVIES):
+    for movie in MOVIES:
         match_keyword = keyword.lower() in movie["title"].lower() if keyword else True
         match_genre = selected_genre == "全部" or movie["genre"] == selected_genre
-        if match_keyword and match_genre:
+        match_year = selected_year_range[0] <= movie["year"] <= selected_year_range[1]
+        match_favorite = not favorites_only or movie["title"] in favorites
+        movie_duration = get_movie_duration(movie)
+        if not duration_bounds:
+            match_duration = True
+        elif movie_duration is None:
+            match_duration = not duration_filter_active
+        else:
+            match_duration = (
+                selected_duration_range[0]
+                <= movie_duration
+                <= selected_duration_range[1]
+            )
+
+        # 情境篩選判斷
+        if selected_mood != "不篩選":
+            if selected_mood == "😱 不要恐怖":
+                match_mood = movie["genre"] not in ["恐怖", "驚悚"]
+            else:
+                allowed = MOOD_FILTERS.get(selected_mood, [])
+                match_mood = movie["genre"] in allowed
+        else:
+            match_mood = True
+
+        if selected_companion != "不篩選":
+            allowed_c = COMPANION_FILTERS.get(selected_companion, [])
+            match_companion = movie["genre"] in allowed_c
+        else:
+            match_companion = True
+
+        if (
+            match_keyword
+            and match_genre
+            and match_year
+            and match_duration
+            and match_favorite
+            and match_mood
+            and match_companion
+        ):
             results.append(movie)
 
+    results = sort_movies(results, selected_sort)
+
+    random_pick_col, random_info_col = st.columns([1.2, 2.8])
+    with random_pick_col:
+        if st.button("🎲 隨機挑一部", use_container_width=True):
+            random_movie = pick_random_movie(results)
+            st.session_state["movie_random_pick"] = random_movie["title"] if random_movie else ""
+    with random_info_col:
+        st.caption("可從目前篩選結果中隨機抽一部，適合選不出來的時候。")
+
+    random_pick_title = st.session_state.get("movie_random_pick", "")
+    random_pick_movie = next((movie for movie in MOVIES if movie["title"] == random_pick_title), None)
+
+    if random_pick_movie and any(movie["title"] == random_pick_title for movie in results):
+        with st.container(border=True):
+            st.markdown("#### 🎲 今天就看這部")
+            st.markdown(
+                f"**{random_pick_movie['title']}** · {random_pick_movie['genre']} · {random_pick_movie['year']}"
+            )
+            st.write(random_pick_movie["intro"])
+
     st.caption(f"目前收錄 {len(MOVIES)} 部近五年台灣上映電影。")
+    with st.expander(f"⭐ 收藏清單（{len(favorites)}）", expanded=bool(favorites)):
+        if favorites:
+            header_col, clear_col = st.columns([3.5, 1.2])
+            with header_col:
+                st.caption("已收藏的電影會保留在本機，下次開啟頁面仍可看到。")
+            with clear_col:
+                if st.button("清空收藏", key="clear_favorites", use_container_width=True):
+                    clear_favorites()
+                    st.rerun()
+
+            favorite_movies = [movie for movie in MOVIES if movie["title"] in favorites]
+            favorite_movies = sort_movies(favorite_movies, selected_sort)
+            for favorite_movie in favorite_movies:
+                st.markdown(
+                    f"- **{favorite_movie['title']}** · {favorite_movie['genre']} · {favorite_movie['year']}"
+                )
+        else:
+            st.caption("你還沒有收藏電影，先從下方清單加入吧。")
+
     st.subheader(f"搜尋結果：{len(results)} 部")
 
     if results:
         for movie in results:
+            is_favorite = movie["title"] in favorites
             poster_info = POSTER_MAP.get(movie["title"], {})
             poster_url = poster_info.get("poster", PLACEHOLDER_POSTER)
             poster_source = poster_info.get("source")
@@ -339,9 +622,19 @@ def render_main() -> str:
                             unsafe_allow_html=True,
                         )
                 with col2:
-                    st.markdown(f"### {movie['title']}")
+                    title_col, action_col = st.columns([4.2, 1.2])
+                    with title_col:
+                        st.markdown(f"### {movie['title']}")
+                    with action_col:
+                        button_label = "💔 取消收藏" if is_favorite else "⭐ 加入收藏"
+                        if st.button(button_label, key=f"favorite_{movie['title']}", use_container_width=True):
+                            toggle_favorite(movie["title"])
+                            st.rerun()
                     st.write(f"類型：{movie['genre']}")
                     st.write(f"上映年份：{movie['year']}")
+                    duration_text = get_movie_duration(movie)
+                    if duration_text is not None:
+                        st.write(f"影片時長：{duration_text} 分鐘")
                     st.write(f"簡介：{movie['intro']}")
                     if poster_source:
                         st.caption(f"海報來源：{poster_source}")
@@ -349,12 +642,24 @@ def render_main() -> str:
         st.warning("找不到符合條件的電影，請試試別的關鍵字或類型。")
 
     top_titles = "、".join(movie["title"] for movie in results[:3]) if results else "無"
+    result_titles = "、".join(movie["title"] for movie in results[:10]) if results else "無"
+    favorite_titles = "、".join(favorites[:10]) if favorites else "無"
     return (
         "【目前頁面】電影搜尋\n"
         f"【搜尋關鍵字】{keyword or '未輸入'}\n"
         f"【電影類型】{selected_genre}\n"
+        f"【心情／需求】{selected_mood}\n"
+        f"【陪伴對象】{selected_companion}\n"
+        f"【排序方式】{selected_sort}\n"
+        f"【年份範圍】{selected_year_range[0]} - {selected_year_range[1]}\n"
+        f"【影片時長】"
+        f"{selected_duration_range[0]} - {selected_duration_range[1]} 分鐘\n"
+        f"【只看收藏】{'是' if favorites_only else '否'}\n"
+        f"【收藏數量】{len(get_favorite_titles())}\n"
         f"【結果數量】{len(results)}\n"
-        f"【最上方結果】{top_titles}"
+        f"【最上方結果】{top_titles}\n"
+        f"【目前結果前十部】{result_titles}\n"
+        f"【收藏清單前十部】{favorite_titles}"
     )
 
 
