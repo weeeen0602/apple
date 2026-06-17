@@ -746,7 +746,9 @@ def render_chat_panel(*, extra_context: str = "", page_name: str = "") -> None:
             with st.chat_message(role):
                 st.markdown(text)
 
-    if user_text := st.chat_input("詢問 Agent...", key="studio_chat"):
+    user_text = st.chat_input("詢問 Agent...", key="studio_chat")
+
+    if user_text:
         image_path, image_error = _save_uploaded_chat_image(uploaded_image)
         display_user_text = user_text
         if image_error:
