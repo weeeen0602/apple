@@ -4,7 +4,8 @@
     "source": "https://www.themoviedb.org/movie/773569",
     "status": "found",
     "year": 2021,
-    "genre": "懸疑"
+    "genre": "懸疑",
+    "duration": 130
   },
   "角頭外傳：浪流連": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/sUAAIH5BrR31aBDfzSjWI5Lorqd.jpg",
@@ -18,21 +19,24 @@
     "source": "https://www.themoviedb.org/movie/797787",
     "status": "found",
     "year": 2021,
-    "genre": "愛情"
+    "genre": "愛情",
+    "duration": 115
   },
   "瀑布": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/nTZVRNFrztdBKxO2tP1wvMfWxeN.jpg",
     "source": "https://www.themoviedb.org/movie/852355",
     "status": "found",
     "year": 2021,
-    "genre": "劇情"
+    "genre": "劇情",
+    "duration": 129
   },
   "哭悲": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/d8Ip6MmPxeMAtNJtusbPaGCEsvh.jpg",
     "source": "https://www.themoviedb.org/movie/776797",
     "status": "found",
     "year": 2021,
-    "genre": "恐怖"
+    "genre": "恐怖",
+    "duration": 100
   },
   "我沒有談的那場戀愛": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/81XRB9SKgbPyVFVnNRtx1f4uKlc.jpg",
@@ -53,7 +57,8 @@
     "source": "https://www.themoviedb.org/movie/783740",
     "status": "found",
     "year": 2021,
-    "genre": "奇幻"
+    "genre": "奇幻",
+    "duration": 128
   },
   "詭扯": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/uqGddg1vZgrxXOgRH4zEgTBSAbU.jpg",
@@ -74,7 +79,8 @@
     "source": "https://www.themoviedb.org/movie/864370",
     "status": "found",
     "year": 2022,
-    "genre": "恐怖"
+    "genre": "恐怖",
+    "duration": 110
   },
   "少年吔": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/RsxESuDOrF8dTKmXA77t8R24KY.jpg",
@@ -88,14 +94,16 @@
     "source": "https://www.themoviedb.org/movie/975812",
     "status": "found",
     "year": 2022,
-    "genre": "家庭"
+    "genre": "家庭",
+    "duration": 111
   },
   "本日公休": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/qf5IsBImXCvSiThQUnTv20suJRM.jpg",
     "source": "https://www.themoviedb.org/movie/956288",
     "status": "found",
     "year": 2022,
-    "genre": "溫馨"
+    "genre": "溫馨",
+    "duration": 105
   },
   "罪後真相": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/99M1sP4EPACgILcUoGIyoxZ3Tnr.jpg",
@@ -116,7 +124,8 @@
     "source": "https://www.themoviedb.org/movie/942953",
     "status": "found",
     "year": 2022,
-    "genre": "動作"
+    "genre": "動作",
+    "duration": 118
   },
   "童話·世界": {
     "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/jEyiP1mFcZ62808Gi5osZLUxJVC.jpg",
@@ -175,9 +184,9 @@
     "genre": "喜劇"
   },
   "關於我和鬼變成家人的那件事：特別場": {
-    "poster": "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1",
-    "source": null,
-    "status": "placeholder",
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/qyzDLcUDR0LLAjVm3XPhy06OhkV.jpg",
+    "source": "https://www.themoviedb.org/movie/983883",
+    "status": "found",
     "year": 2023,
     "genre": "喜劇"
   },
@@ -406,9 +415,9 @@
     "genre": "愛情"
   },
   "一家子兒咕咕叫：加映版": {
-    "poster": "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1",
-    "source": null,
-    "status": "placeholder",
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/sKUM40YfAZPOOsEJXxvWOgRABNc.jpg",
+    "source": "https://www.themoviedb.org/movie/899460",
+    "status": "found",
     "year": 2022,
     "genre": "劇情"
   },
@@ -448,9 +457,9 @@
     "genre": "劇情"
   },
   "少男少女：青春版": {
-    "poster": "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1",
-    "source": null,
-    "status": "placeholder",
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/36PslBjdTo0QWrYgX9Xi7AFsIsR.jpg",
+    "source": "https://www.themoviedb.org/movie/1088428",
+    "status": "found",
     "year": 2023,
     "genre": "青春"
   },
@@ -497,9 +506,9 @@
     "genre": "劇情"
   },
   "有病才會喜歡你：特映版": {
-    "poster": "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1",
-    "source": null,
-    "status": "placeholder",
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/nGNEKxvtI9m7RVcvT0AJ3bRsRfh.jpg",
+    "source": "https://www.themoviedb.org/movie/1321139",
+    "status": "found",
     "year": 2025,
     "genre": "愛情"
   },
@@ -1501,6 +1510,286 @@
     "poster": "https://placehold.co/300x450?text=%E6%9A%AB%E7%84%A1%E6%B5%B7%E5%A0%B1",
     "source": null,
     "status": "placeholder",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "玩具總動員5": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/1vhjC7Ra5C6BPeZskeMz0WUmrnr.jpg",
+    "source": "https://www.themoviedb.org/movie/1084244-toy-story-5",
+    "status": "found",
+    "year": 2026,
+    "genre": "家庭"
+  },
+  "超少女": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/rJbcrmogANaj9CEMDUjauUdnq9f.jpg",
+    "source": "https://www.themoviedb.org/movie/1081003-supergirl",
+    "status": "found",
+    "year": 2026,
+    "genre": "動作"
+  },
+  "腦筋急轉彎2": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/xPqTQs3qVE2thlHhzx1Sr1KMrt7.jpg",
+    "source": "https://www.themoviedb.org/movie/1022789-inside-out-2",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "死侍與金鋼狼": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/wjVZAMWgfPfn2ALtLkUJY88ZySm.jpg",
+    "source": "https://www.themoviedb.org/movie/533535-deadpool-wolverine",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "沙丘：第二部": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/1p25wDEdFRRTtwtPFbtPHISefzG.jpg",
+    "source": "https://www.themoviedb.org/movie/693134-dune-part-two",
+    "status": "found",
+    "year": 2024,
+    "genre": "科幻"
+  },
+  "破·地獄": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/6sxqD1qzC4nY4OeH6O3lE1V5hJu.jpg",
+    "source": "https://www.themoviedb.org/movie/1226141",
+    "status": "found",
+    "year": 2024,
+    "genre": "劇情"
+  },
+  "風之谷": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/rLOmEtJZUNcUbBfpfJ8OBvanzfO.jpg",
+    "source": "https://www.themoviedb.org/movie/81",
+    "status": "found",
+    "year": 2025,
+    "genre": "動畫"
+  },
+  "再見機器人": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/sR7txFuAGehkb6sRtylwAneHpR1.jpg",
+    "source": "https://www.themoviedb.org/movie/838240-robot-dreams",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "荒野機器人": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/gzq36QVwlXpkHWTQ4ob0Kb1C50i.jpg",
+    "source": "https://www.themoviedb.org/movie/1184918-the-wild-robot",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "異形：羅穆路斯": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/92dA2WHqfTv5Be7mzr39DN4VeQ5.jpg",
+    "source": "https://www.themoviedb.org/movie/945961-alien-romulus",
+    "status": "found",
+    "year": 2024,
+    "genre": "科幻"
+  },
+  "功夫熊貓4": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/trOu1ng3kDE3vKsjP8XLw3oL8lQ.jpg",
+    "source": "https://www.themoviedb.org/movie/1011985-kung-fu-panda-4",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "神偷奶爸4": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/niFiEONojDV0z3qvIAgsTHTH96d.jpg",
+    "source": "https://www.themoviedb.org/movie/519182-despicable-me-4",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "名偵探柯南：100萬美元的五稜星": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/2dYQ8N7w1sE2s0XwQKxS2Yh7fZl.jpg",
+    "source": "https://www.themoviedb.org/movie/1209217-100",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "猩球崛起：王國誕生": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/tE10WMV3SK2kq79aLHztJhz0EM5.jpg",
+    "source": "https://www.themoviedb.org/movie/653346-kingdom-of-the-planet-of-the-apes",
+    "status": "found",
+    "year": 2024,
+    "genre": "科幻"
+  },
+  "哥吉拉與金剛：新帝國": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/lTO7nerUjKZ3QeJgZfMU7d6sD9d.jpg",
+    "source": "https://www.themoviedb.org/movie/823464-godzilla-x-kong-the-new-empire",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "變形金剛：源起": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/bqflnJui6q8y0cZCdVcnNEc1THd.jpg",
+    "source": "https://www.themoviedb.org/movie/698687-transformers-one",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "音速小子3": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/bekdAKIaggJxYBbmDa1MOeJ9MC4.jpg",
+    "source": "https://www.themoviedb.org/movie/939243-sonic-the-hedgehog-3",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "魔法壞女巫": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/kPsQOZ1z7uEDDQWpNhbopsgH76I.jpg",
+    "source": "https://www.themoviedb.org/movie/402431-wicked",
+    "status": "found",
+    "year": 2024,
+    "genre": "奇幻"
+  },
+  "白雪公主": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/yFii9S6Jbco3o4ScBzXZma6gLUB.jpg",
+    "source": "https://www.themoviedb.org/movie/447273-snow-white",
+    "status": "found",
+    "year": 2025,
+    "genre": "奇幻"
+  },
+  "美國隊長：無畏新世界": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/qp7WNCVAkS0nQu7RXrAzfYqDuNP.jpg",
+    "source": "https://www.themoviedb.org/movie/822119-captain-america-brave-new-world",
+    "status": "found",
+    "year": 2025,
+    "genre": "動作"
+  },
+  "MINECRAFT麥塊電影": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/9AEbbSlcUA9W4NbhWLr94acTIcJ.jpg",
+    "source": "https://www.themoviedb.org/movie/950387-a-minecraft-movie",
+    "status": "found",
+    "year": 2025,
+    "genre": "奇幻"
+  },
+  "海洋奇緣2": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/zKFLEeUTO0nGwcff5HPddwZPk1q.jpg",
+    "source": "https://www.themoviedb.org/movie/1241982-moana-2",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "小丑：雙重瘋狂": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/rEDF50L2XvnW8gXeCSlZCmr0aWU.jpg",
+    "source": "https://www.themoviedb.org/movie/889737-joker-folie-a-deux",
+    "status": "found",
+    "year": 2024,
+    "genre": "驚悚"
+  },
+  "角頭－大橋頭": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/gaNsN1ojr3mhFBUexBpA4gJ7ejs.jpg",
+    "source": "https://www.themoviedb.org/movie/1303236",
+    "status": "found",
+    "year": 2024,
+    "genre": "犯罪"
+  },
+  "喵的奇幻漂流": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/myG36fCGf6AMRQdWASJ66izCn7C.jpg",
+    "source": "https://www.themoviedb.org/movie/823219-straume",
+    "status": "found",
+    "year": 2025,
+    "genre": "動畫"
+  },
+  "吸血鬼：諾斯費拉圖": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/c7asXTLraHO6gZJd7uo7QvNpKqa.jpg",
+    "source": "https://www.themoviedb.org/movie/426063-nosferatu",
+    "status": "found",
+    "year": 2025,
+    "genre": "恐怖"
+  },
+  "巴布狄倫：搖滾詩人": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/cxh4GcerxbMMPcouD8RPn6xB3Ue.jpg",
+    "source": "https://www.themoviedb.org/movie/661539-a-complete-unknown",
+    "status": "found",
+    "year": 2025,
+    "genre": "音樂"
+  },
+  "台北追緝令": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/rGUF1REqWmhhm6t3aDJfffBJhqW.jpg",
+    "source": "https://www.themoviedb.org/movie/1167271-weekend-in-taipei",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "懼裂": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/oDDYHINnemOisgswvLU0EZuHLFH.jpg",
+    "source": "https://www.themoviedb.org/movie/933260-the-substance",
+    "status": "found",
+    "year": 2024,
+    "genre": "驚悚"
+  },
+  "艾諾拉": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/zt3iRbwMklKGDGx13nHt8b5Y0uT.jpg",
+    "source": "https://www.themoviedb.org/movie/1064213-anora",
+    "status": "found",
+    "year": 2024,
+    "genre": "劇情"
+  },
+  "絕地戰警：生死與共": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/47E5JMJ6g5MsP8a4K5Y4qU8VhQW.jpg",
+    "source": "https://www.themoviedb.org/movie/573435-bad-boys-ride-or-die",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "神鬼戰士II": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/91m9sFfM3V3s4rG4l7R5z8T6D3A.jpg",
+    "source": "https://www.themoviedb.org/movie/558449-gladiator-ii",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "噤界：入侵日": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/yrpPYKijwdMHyTGIOd1iK1h0Xno.jpg",
+    "source": "https://www.themoviedb.org/movie/762441-a-quiet-place-day-one",
+    "status": "found",
+    "year": 2024,
+    "genre": "恐怖"
+  },
+  "猛毒最終章：最後一舞": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/aosm8NMQ3UyoBVpSxyimorCQykC.jpg",
+    "source": "https://www.themoviedb.org/movie/912649-venom-the-last-dance",
+    "status": "found",
+    "year": 2024,
+    "genre": "動作"
+  },
+  "獅子王：木法沙": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/jpP3e3H0K5o6s7s8M9v0Q1X2Z3A.jpg",
+    "source": "https://www.themoviedb.org/movie/762509-mufasa-the-lion-king",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "魔戒：洛汗人之戰": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/cXzCOx1hUuU9CfmiEv6rXjb6EqU.jpg",
+    "source": "https://www.themoviedb.org/movie/839033-the-lord-of-the-rings-the-war-of-the-rohirrim",
+    "status": "found",
+    "year": 2024,
+    "genre": "動畫"
+  },
+  "雷霆特攻隊＊": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/m9EtP1Yrzv6v7dMaC9mRaGhd1um.jpg",
+    "source": "https://www.themoviedb.org/movie/986056-thunderbolts",
+    "status": "found",
+    "year": 2025,
+    "genre": "動作"
+  },
+  "馴龍高手": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/q5pXRYTycaeW6dEgsCrd4mYPmxM.jpg",
+    "source": "https://www.themoviedb.org/movie/1087192-how-to-train-your-dragon",
+    "status": "found",
+    "year": 2025,
+    "genre": "奇幻"
+  },
+  "不可能的任務：最終清算": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/z53D72EAOxGRqdr7KXXWp9dJiDe.jpg",
+    "source": "https://www.themoviedb.org/movie/575265-mission-impossible-the-final-reckoning",
+    "status": "found",
+    "year": 2025,
+    "genre": "動作"
+  },
+  "絕地戰警：生死與共": {
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
+    "source": "https://www.themoviedb.org/movie/573435-bad-boys-ride-or-die",
+    "status": "found",
     "year": 2024,
     "genre": "動作"
   }
