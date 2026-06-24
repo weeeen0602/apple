@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>電影推薦 — 專題海報</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft JhengHei", "PingFang TC", "Heiti TC", Arial, sans-serif;
+    background: #faf6f0;
+    color: #3a2e26;
+  }
+  .poster {
+    width: 1200px;
+    height: 1800px;
+    background: linear-gradient(180deg, #faf6f0 0%, #f0e6d6 100%);
+    padding: 40px 60px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .poster::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #8a9a5b 0%, #c97b63 50%, #8a9a5b 100%);
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 3px double #c97b63;
+  }
+  .title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #3a2e26;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    font-size: 22px;
+    color: #8a6f5c;
+    font-weight: 500;
+  }
+  .section {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 5px solid #8a9a5b;
+    padding: 14px 20px;
+    border-radius: 4px;
+  }
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #6b7d3f;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: "▎";
+    color: #c97b63;
+    font-size: 28px;
+  }
+  .section ul {
+    list-style: none;
+    padding-left: 6px;
+  }
+  .section li {
+    font-size: 17px;
+    line-height: 1.55;
+    padding: 2px 0;
+    color: #3a2e26;
+  }
+  .section li::before {
+    content: "• ";
+    color: #c97b63;
+    font-weight: bold;
+    margin-right: 4px;
+  }
+  .section li ul {
+    margin-top: 2px;
+    margin-left: 20px;
+  }
+  .section li ul li {
+    font-size: 16px;
+    color: #5a4a3e;
+  }
+  .image-block {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #c97b63;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .image-block img {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  .image-caption {
+    font-size: 14px;
+    color: #8a6f5c;
+    margin-top: 6px;
+    font-style: italic;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .three-col .section {
+    margin-bottom: 0;
+  }
+  .demo-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .demo-item {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #8a9a5b;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+  }
+  .demo-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  .demo-item .demo-label {
+    font-size: 13px;
+    color: #6b7d3f;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    left: 60px;
+    right: 60px;
+    text-align: center;
+    font-size: 14px;
+    color: #8a6f5c;
+    padding-top: 10px;
+    border-top: 2px solid #c97b63;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="header">
+    <div class="title">電影推薦</div>
+    <div class="subtitle">Agent Studio 專題　｜　2026-06-24</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">專題介紹</div>
+    <ul>
+      <li>一句話功能：輸入片名或篩選類型，搜尋台灣上映的電影</li>
+      <li>主要使用者：想看電影的廣大觀眾</li>
+      <li>想解決的痛點：
+        <ul>
+          <li>想快速找到符合當下心情／情境的電影</li>
+          <li>目前「感覺篩選」條件（心情、陪伴對象）有點少，想擴充</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="image-block">
+    <img src="assets/server-topology.png" alt="學校 Server 拓撲">
+    <div class="image-caption">學校 Server 環境（透過 API Key 呼叫 Ollama Router）</div>
+  </div>
+
+  <div class="image-block">
+    <img src="assets/project-architecture.png" alt="專案架構">
+    <div class="image-caption">系統架構：左欄 UI ↔ 資料檔 ↔ 外部 API（in89 + TMDB）</div>
+  </div>
+
+  <div class="three-col">
+    <div class="section">
+      <div class="section-title">成果</div>
+      <ul>
+        <li>搜尋（片名關鍵字）</li>
+        <li>篩選（類型、心情、陪伴對象、年份、時長）</li>
+        <li>隨機挑片</li>
+        <li>收藏電影</li>
+        <li>in89 同步片單</li>
+      </ul>
+    </div>
+    <div class="section">
+      <div class="section-title">創新／亮點</div>
+      <ul>
+        <li>依照現在的心情或觀影需求來篩選電影（情境式篩選）</li>
+      </ul>
+    </div>
+    <div class="section">
+      <div class="section-title">技術含量</div>
+      <ul>
+        <li>Streamlit 多頁 UI 框架</li>
+        <li>JSONL 對話紀錄 + 記憶整合</li>
+        <li>LangChain + OpenAI 相容 LLM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Demo 展示</div>
+    <div class="demo-row">
+      <div class="demo-item">
+        <img src="assets/demo-01.png" alt="Home">
+        <div class="demo-label">Home</div>
+      </div>
+      <div class="demo-item">
+        <img src="assets/demo-02.png" alt="Playground">
+        <div class="demo-label">Playground</div>
+      </div>
+      <div class="demo-item">
+        <img src="assets/demo-03.png" alt="UI 元件詞彙表">
+        <div class="demo-label">UI 元件詞彙表</div>
+      </div>
+      <div class="demo-item">
+        <img src="assets/demo-04.png" alt="電影搜尋">
+        <div class="demo-label">電影搜尋（本專題）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    馬公高中　Agent Studio 專題報告　｜　電影推薦 App
+  </div>
+
+</div>
+</body>
+</html>

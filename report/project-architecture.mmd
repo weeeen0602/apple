@@ -1,0 +1,39 @@
+flowchart LR
+    subgraph 使用者
+        U[觀眾]
+    end
+
+    subgraph 左欄網頁
+        UI[電影搜尋頁]
+        BTN[更新按鈕]
+        FILTER[篩選條件]
+        RANDOM[隨機挑片]
+    end
+
+    subgraph 資料存放
+        MOVIES[電影清單]
+        POSTERS[海報資料]
+        FAV[收藏清單]
+    end
+
+    subgraph 外部服務
+        IN89[in89 駁二電影院]
+        TMDB[TMDB 電影資料庫]
+    end
+
+    U -->|輸入條件| FILTER
+    U -->|點擊更新| BTN
+    U -->|點擊隨機| RANDOM
+
+    FILTER --> UI
+    UI -->|讀取電影| MOVIES
+    UI -->|讀取海報| POSTERS
+    UI -->|讀寫收藏| FAV
+
+    BTN -->|抓取現正熱映| IN89
+    IN89 -->|補齊資料| TMDB
+    TMDB -->|回寫新片| MOVIES
+    TMDB -->|回寫海報| POSTERS
+
+    UI -->|顯示結果| U
+    RANDOM -->|隨機一部| U
