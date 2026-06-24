@@ -1,0 +1,842 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <title>高雄鹽埕_in89駁二電影院</title>
+
+
+<link rel="stylesheet" type="text/css" href="https://img.in89cinemax.com/css/bootstrap.min.css?20221104" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/res.min.css?20260414102130" />
+<link rel="stylesheet" type="text/css" href="https://img.in89cinemax.com/css/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://img.in89cinemax.com/js/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" type="text/css" href="css/index.min.css?20260414102130" />
+
+<script type="text/javascript" src='js/suite.min.js?20260429110757'></script>
+<script type="text/javascript" src='js/dictionary.js?20260429110757' defer></script>
+<script type="text/javascript" src='js/lib.js?20260429110757' defer></script>
+<script type="text/javascript" src='js/index.js?20260429110757' defer></script>
+
+<script type="text/javascript" src="https://img.in89cinemax.com/js/jquery.min.js"></script>
+<script type="text/javascript" src='https://img.in89cinemax.com/js/vue.min.js'></script>
+<script type="text/javascript" src="https://img.in89cinemax.com/js/jquery.touchSwipe.js"></script>
+<script type="text/javascript" src="https://img.in89cinemax.com/js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src='https://img.in89cinemax.com/js/sweetalert.min.js'></script>
+
+<script type="text/javascript" src="https://img.in89cinemax.com/js/slick.min.js"></script>
+<script type="text/javascript" src='https://img.in89cinemax.com/js/dayjs.min.js'></script>
+<script type="text/javascript" src="https://img.in89cinemax.com/js/fancybox/jquery.fancybox.min.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LfIngUaAAAAAA0pGba2yOnaUy2svXUso8E1Aa7R" async defer></script> -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB4FXHZG1S"></script>
+<script type="text/javascript" src="https://apis.google.com/js/api:client.js"></script>
+<script type="text/javascript" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script>
+    //window.fbAsyncInit = function () { FB.init({ appId: '206884132771056', autoLogAppEvents: true, xfbml: true, version: 'v5.0' }); };
+
+    window.onload = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QB4FXHZG1S');
+    }(document, 'script', 'facebook-jssdk'));
+
+    $(window).load(function() {
+        $("#login-fb").append("<img src='./images/logo_fb_512.png' style='background-color:white;' />");
+        $("#login-google").append("<img src='./images/logo_google_512.png' />");
+        $("#login-line").append("<img src='./images/logo_line_1000.png' />");
+		
+		if (typeof onGoogleBind == 'function' && $('#bind-google-openid').length > 0) {
+			$('#bind-google-openid').click(rqGoogleBind);
+		}
+		if (typeof onGoogleLogin == 'function' && $('#login-google-openid').length > 0) {
+			$('#login-google-openid').click(rqGoogleLogin);
+		}
+		if (typeof onGoogleBindReg == 'function' && $('#bindreg-google-openid').length > 0) {
+			$('#bindreg-google-openid').click(rqGoogleBindReg);
+		}
+    });
+</script>
+
+<style>
+    .feat.office {
+        text-align: center;
+    }
+
+    .theater-select .row {
+        margin-bottom: 30px;
+    }
+
+    .wpcc-container {
+        width: 97%;
+    }
+
+    .wpcc-message, .wpcc-compliance, .wpcc-privacy {
+        font-size: 16px;
+    }
+
+    .forget_submit {
+        margin: 5px;
+    }
+
+    .forget_token {
+        margin: 5px;
+    }
+</style>
+</head>
+
+<body class="style-yellow                  ">
+
+<script>
+    let event_start = new Date("2025/06/06 00:00:00").getTime(),
+    event_end = new Date("2025/07/13 23:59:59").getTime(),
+    now_time = Date.now();
+
+    let urlParams = new URLSearchParams(window.location.search);
+
+    let querystr = '';
+    if (urlParams.has('TheaterId')) {
+        querystr = `?TheaterId=${urlParams.get('TheaterId')}`;
+    }
+
+    if (now_time >= event_start && now_time < event_end) {
+        let pass = !localStorage.hasOwnProperty('event_show') || localStorage.getItem('event_show') == 1;
+        let event_show_date;
+
+        if (localStorage.hasOwnProperty('event_show_date')) {
+            event_show_date = localStorage.getItem('event_show_date');
+            let diff = now_time - event_show_date;
+            if (diff > 60 * 60 * 24 * 1000) {
+                pass = true;
+            }
+        }
+
+        if (pass) {
+            localStorage.setItem('event_show', 0);
+            localStorage.setItem('event_show_date', new Date(dayjs().format('YYYY-MM-DD 00:00:00')).getTime());
+
+            window.location = './event/2025MEMBER/' + querystr;
+        }
+    }
+</script>
+
+<!-- page load start -->
+<div class="loading">
+    <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>
+<!-- page load end -->
+<form class="sub-form container-fluid" action="" method="post">
+
+<div class="member-information res-hidden">
+    <div class='member-mask member-login res-hidden'><div class='close in89-in-26'></div><div class='title'>會員登入</div><div class='error'><span></span></div><div class='form'>    <input type='text' name='account' class='form-control' placeholder='帳號:會員卡卡號/網路會員請輸入身分證字號'>    <div class='form-group has-feedback'>    <input type='password' name='password' class='form-control' placeholder='密碼:'>    <i class='glyphicon glyphicon-eye-open form-control-feedback' style='color:black;'></i>    </div>    <div style="margin-bottom: 10px;" class="cf-turnstile" id="turnstile-loginHeader"></div>    <div id="turnstile-msg-loginHeader" style="font-size: 7px; color: red;">等待驗證中....</div>    <div class='form-group'>        <div class='w-50 xs-w-70'>             <input type='submit' value='登入' class='form-control login-search' data-turnstilemode="loginHeader" />             <input type='submit' class='login-in' style='display: none;' />             <a href='member_register.aspx?TheaterId=2' class='btn' title='加入會員'>加入會員</a>             <input type='hidden' name='card_id' class='form-control' />             <input type='hidden' name='token' class='form-control' />        </div>        <div class='w-50 xs-w-30 text-right'>            <a href='#' class='forget' title='忘記密碼'>忘記密碼?</a>        </div>    </div>    <div class='infor'>    若您首次登入會員，請先按忘記密碼設置新密碼後再重新登入<br>    若您尚未擁有本影城會員資格、請立即至「加入會員」申請帳號，即享有網路訂票服務。    </div><div style='margin: 8px 0; border-top: 1px solid #888;'></div><div style='font-size: medium; margin: 2px;'>以其他方式登入</div><div class='panel-login-openid'>    <div class='panel-login-openid-row'>        <div style='display:table-cell;width:4px;'></div>        <div id='login-google-openid' class='login-openid' style='display:table-cell' onclick='disableDuring(".login-openid,.login-search", 2000);'>            <div class='login-openid-logo' id='login-google'></div>            <span class='login-openid-label'>Google</span>        </div>        <div style='display:table-cell;width:4px;'></div>        <div class='login-openid' style='display:table-cell' onclick="redirectLineLogin(window.location.protocol + '//' + window.location.host + '/index.aspx')">            <div class='login-openid-logo' id='login-line'></div>            <span class='login-openid-label'>LINE</span>        </div>    </div></div></div></div>
+    <!-- 會員登入前 End -->
+    <div class="member-mask member-forget res-hidden">
+        <div class="close in89-in-26"></div>
+        <div class="title">忘記密碼</div>
+        <div class="error"><span>您輸入的資訊有誤，請再次確認。</span></div>
+        <div class="purse-text">
+            <h5>可提供下列任一資訊來重設您的密碼:</h5>
+            <ol>
+                <li>會員卡號</li>
+                <li>身分證字號</li>
+                <li>手機</li>
+                <li>電子信箱</li>
+            </ol>
+            <span>重設密碼連結將會寄送至您的手機或電子信箱，請留意收取。</span><br>
+            <span>重設密碼連結只能使用一次，重設密碼後連結將會失效。</span><br>
+            <span>每位會員一天只能使用五次重設密碼功能。</span><br>
+        </div>
+        <br>
+        <div class="form" style="margin-top: 10px;">
+            <div class="input-group" style="width: 100%;">
+                <input type="text" name="forget_member_data" class="form-control" placeholder="請提供卡號或身分證字號、手機號碼、電子郵件">
+            </div>
+            <div class="cf-turnstile" id="turnstile-forgetPwd" style="margin-bottom: 5px;"></div>
+            <div id="turnstile-msg-forgetPwd" style="font-size: 7px; color: red;">等待驗證中....</div>
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" value="送出資料" class="form-control forget_submit">
+            </div>
+        </div>
+    </div><!-- 會員登入前 End sub -->
+    <div class="member-mask member-in res-hidden">
+        <div class="close in89-in-26"></div>
+        <div class="title">登入成功</div>
+        <div class="infor LoginInBouns"></div>
+        <div class="infor LoginConfirm form" style="display: none;"></div>
+    </div><!-- 會員登入後 End sub -->
+    <div class="member-mask newsletter-join res-hidden">
+        <div class="close in89-in-26"></div>
+        <div class="title">訂閱電子報</div>
+        <div class="form">
+            <input type="text" name="query_str" class="form-control" placeholder="請輸入E-mail">
+            <input type="text" name="query_str" class="form-control" placeholder="請輸入手機">
+            <div class="form-group text-center">
+                <input type="reset" value="清除資料" class="form-control">
+                <input type="submit" value="送出資料" class="form-control" style="margin-left:5px;">
+            </div>
+        </div>
+    </div><!-- 電子報申請 End sub -->
+</div><!-- 會員相關處理程序 End sub -->
+ 
+    <!-- 會員買餐免手續費的提示 -->
+    <!-- <div id="no-fee-tip" class="full-screen">
+        <div class="tip-img">
+            <div class="tip-close" onclick="closeTip()"></div>
+        </div>
+    </div> -->
+    <input type="checkbox" id="resp-menu">
+    <aside class="aside">
+        <a href="index.aspx?TheaterId=2" class="logo">
+            <img id="logos" src="https://img.in89cinemax.com/files/theater/201907051420550.png">
+        </a>
+        <label for="resp-menu"><div class="response-menu in89-in-19"></div></label>
+        <ul class="menu">
+            <li><a href="index.aspx?TheaterId=-1">選擇影城</a></li>
+            <li class=""><a href="theater.aspx?TheaterId=2">影城介紹</a></li>
+            <li class=""><a href="film_list.aspx?TheaterId=2">電影時刻</a></li><li><a href="item_list.aspx?TheaterId=2">電影周邊</a></li>
+            <li class=""><a href="food.aspx?TheaterId=2">捌玖食堂</a></li>
+            <li class=""><a href='member_information.aspx?TheaterId=2' class='check_members'>會員專區</a></li>
+            <li class=""><a href="venues.aspx?TheaterId=2">特色影廰</a></li>
+            <li class=""><a href="news.aspx?TheaterId=2&type=activities">活動公告</a></li>
+            <li class=""><a href="group.aspx?TheaterId=2">業務專區</a></li>
+            <li class=""><a href="question.aspx?TheaterId=2">常見問題</a></li>
+            <li class="logoutbtn" style="display:none;"><a href='javascript:void();' class='login-out'>會員登出</a></li>
+        </ul>
+        <div class="features">
+            <div class="feat">
+                <div class="lang">
+                    <style>.aside .features > .feat > .lang:before {display:none;}</style>
+                </div>
+                <div>
+                    <a title="連結到Facebook" class="in89-in-02" href="society.aspx?TheaterId=2"></a>
+                    <a title="寄郵件" class="in89-in-01" href="service.aspx?TheaterId=2"></a>
+                </div>
+            </div>
+            
+            <div class="member-infor">
+                <a href='#' class='before-login member-logins'><i class='in89-in-04'></i>會員登入</a>
+            </div>
+            
+            <div class="feat office">
+                <a href="activities.aspx?TheaterId=2">影音專區</a>
+            </div>
+            <div class="feat office">
+                <a href="quarterly_list.aspx?TheaterId=2">in季刊</a>
+            </div>
+        </div>
+        <div class="footer">
+            <a title="關於in89" href="about.aspx?TheaterId=2">關於in89</a>
+            <a title="隱私權政策" href="privacy.aspx?TheaterId=2">隱私權政策</a>
+        </div>
+    </aside><!-- aside end sub -->
+
+<section v-cloak class="section row-column list-column">
+    <div class="column-row information text-center has-padding">
+        <h3 class="head-title">電影時刻</h3>
+        <ul class="infor-menu">
+            <li class="res-infor-menu"></li>
+            <li :class="{ active: type == 'Hot' }" @click.prevent="changeDetail('Hot')"><a href="javascript:void();">現正熱映</a></li>
+            <li :class="{ active: type == 'ComingSoon' }" @click.prevent="changeDetail('ComingSoon')"><a href="javascript:void();">即將上映</a></li>
+            <li class="subtitle"><span>品牌影廳</span></li>
+            <li :class="{ active: type == hall }" v-for="hall in SpecialHallsOfTheater" @click.prevent="changeDetail(hall)"><a href="javascript:void();">{{ hall }}</a></li>
+            <li class="subtitle"><span>限定場</span></li>
+            <li :class="{ active: type == 'spec_IMAX' }" @click.prevent="changeDetail('spec_IMAX')" v-if="theater_id == 17"><a href="javascript:void();">IMAX科普教育</a></li>
+            <li :class="{ active: type == 'spec_BOOM' }" @click.prevent="changeDetail('spec_BOOM')"><a href="javascript:void();">boomboom親子活動</a></li>
+            <li :class="{ active: type == 'spec_FAMILY' }" @click.prevent="changeDetail('spec_FAMILY')"><a href="javascript:void();">親子小燈場</a></li>
+            <li :class="{ active: type == 'spec_SHOW' }" @click.prevent="changeDetail('spec_SHOW')"><a href="javascript:void();">影展/展演</a></li>
+        </ul>
+
+        <div class="ads">
+            <!-- <a href="#"><img src="images/test-02.jpg" alt=""></a> -->
+<div class='insideSlide'><div class='insideSlideMask'><a href='https://reurl.cc/xKeLkz' target='new'><img src='https://img.in89cinemax.com/files/slides/202606231413230.jpg' alt=''></a></div><div class='insideSlideMask'><a href='https://reurl.cc/xKeLkz' target='new'><img src='https://img.in89cinemax.com/files/slides/202606231011530.jpg' alt=''></a></div><div class='insideSlideMask'><a href='https://reurl.cc/K8d9Dm' target='new'><img src='https://img.in89cinemax.com/files/slides/202504241055500.jpg' alt=''></a></div><div class='insideSlideMask'><a href='https://reurl.cc/eMp83R' target='new'><img src='https://img.in89cinemax.com/files/slides/202509021548560.jpg' alt=''></a></div></div>
+        </div>
+    </div>
+
+    <div class="film_list">
+        <template>
+            <div>
+                <div v-if="isShow" class="text-center" style="width: 100%;">
+                    <div style="display: inline-flex;">
+                        <div class="date_pre_div">
+                            <a href="#" class="date_pre" style="margin-left: 5px; font-size: 24px;" @click="changePage('prev')"><</a>
+                        </div>
+                        <div class="date">
+                            {{selected_date}} ({{getWeekMonth('week', selected_date) }})
+                        </div>
+                        <div class="date_next_div">
+                            <a href="#" class="date_next" style="margin-left:5px; font-size: 24px;" @click="changePage('next')">></a>
+                        </div>
+                    </div>
+                    
+                        <div style="margin-top: 5px;">
+                            <a href="#" class="back now_order" style="margin-left:5px;" @click.prevent="send()">立即訂票</a>
+                        </div>
+                    
+                </div>
+                <div v-if="isShow == false" class="text-center" style="width: 100%;">
+                    <div style="display: inline-flex;">
+                        <div class="date">暫無場次</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div v-for="(timegroup, start_time) in dateByStage[selected_date]">
+                        <div v-for="(group, movie_cn_name) in timegroup">
+                            <div class="list" v-for="(stages, movie_id) in group">
+                                <div class="movie_info">
+                                    <div class="movie_img">
+                                        <a class="cover" :href="toDetailURIConcat(dateByMovie[movie_id])">
+                                            <img v-if="theater_id == 3" :src="getImgUrl(dateByMovie[movie_id]['big_img_path'].split('/'))" style="vertical-align: top;">
+                                            <img v-else :src="getImgUrl(dateByMovie[movie_id]['125_img_path'].split('/'))" style="vertical-align: top;">
+                                        </a>
+                                    </div>
+                                    <div style="padding-left: 10px;">
+                                        <p>{{htmldecode(dateByMovie[movie_id]["movie_group_name"])}}</p>
+                                        <p>{{htmldecode(dateByMovie[movie_id]["en_name"])}}</p>
+                                        <p>{{dateByMovie[movie_id]["movie_play_desc"]}}{{dateByMovie[movie_id]["movie_lang_desc"]}}</p>
+                                        <p>片&nbsp;&nbsp;長:&nbsp;{{dateByMovie[movie_id]["play_duration"]}}&nbsp;&nbsp;分</p>
+                                        <p>分&nbsp;&nbsp;級:&nbsp;{{dateByMovie[movie_id]["movie_age_desc"]}}</p>
+                                        <p>上映日期:&nbsp;{{dateByMovie[movie_id]["start_time"]}}</p>
+                                    </div>
+                                </div>
+                                <div class="stage">
+                                    <div class="stage_info" :id="'stage_info_' + stage.stage_id" v-for="stage in stages"
+                                        :style="SpecialHallsOfTheater.includes(type) ? 'width: unset;' : ''">
+                                        <div :style="SpecialHallsOfTheater.includes(type) ? 'margin-top: 5px;' : 'margin-top: 6px; width: 50%; text-align: right;'">
+                                            <img :src="getIcon(stage.theater_film_id)" />
+                                        </div>
+                                        <a href="#"
+                                        :data-movie="stage.movie_id" 
+                                        :data-movie_name="htmldecode(dateByMovie[movie_id]['movie_group_name'] + '-' + dateByMovie[movie_id]['movie_play_desc'] + '-' + dateByMovie[movie_id]['movie_lang_desc'])" 
+                                        :data-field="stage.movie_show_time" 
+                                        :data-stage="stage.stage_id" 
+                                        :data-web_booking_deadline="stage.web_booking_deadline" 
+                                        :data-allow_sell_web="stage.allow_sell_web" 
+                                        @click.prevent="showInfo"
+                                        :class="compareTime(stage.web_booking_deadline) || stage.allow_sell_web == 0 ? '' : 'selectTime'"
+                                        :style="compareTime(stage.web_booking_deadline) || stage.allow_sell_web == 0 ? 
+                                                    SpecialHallsOfTheater.includes(type) ? 'color:gray' : 'color:gray;  width: 50%;' :
+                                                    SpecialHallsOfTheater.includes(type) ? '' : 'width: 50%;'">
+                                        {{dayjs(stage.movie_show_time).format("HH:mm")}}
+	                                    </a>
+                                        <div class="time-array" v-if="compareTime(stage.web_booking_deadline) == false && stage.allow_sell_web == 1">
+                                            <div>{{stage.theater_film_name}}</div>
+                                            <a href="#" tabindex="0">{{stage.web_real_seat}}(餘)</a>
+                                            <a href="#" tabindex="0">{{stage.seat_total}}(總)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+    <input type="text" name="TheaterName" value="高雄鹽埕_in89駁二電影院" class="res-hidden">
+    <input type="text" name="movie_item" :value="selectMovie" class="res-hidden">
+    <input type="text" name="movie_date" :value="selectDate" class="res-hidden">
+    <input type="text" name="field_item" :value="selectField" class="res-hidden">
+    <input type="hidden" name="is_connect" value="True">
+</section><!-- section end sub -->
+<style>
+.text-center {
+    display: inline-flex;
+}
+.date_pre_div, .date_next_div {
+    padding-top: 15px;
+}
+.date {
+    /* width: 100%; */
+    font-size: 24px;
+    padding: 15px;
+}
+.content {
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.film_list {
+    width: 100%;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
+    padding-left: 10px;
+}
+.film_list > div {
+    font-size: 15px;
+    color: white;
+}
+.film_list .movie_info {
+    width: 40%;
+    display: inline-flex;
+    align-items: center;
+    font-family: 微軟正黑體, 'Arial';
+}
+.film_list .movie_info p {
+    font-size: 15px;
+    color: white;
+}
+.film_list .stage {
+    width: 100%;
+    font-size: 15px;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.film_list .stage > div {
+    width: calc(12%);
+    padding: 10px;
+    display: inline-flex;
+    justify-content: space-between;
+    max-height: 40px;
+}
+.film_list .stage > div > img {
+    max-width: 12px;
+    max-height: 12px;
+    margin-top: 5px;
+}
+.film_list .stage > div > a {
+    display: flex;
+    padding-left: 5px;
+    z-index: 1;
+}
+.film_list .list {
+    display: inline-flex;
+    border-bottom-style: solid;
+    border-color: #fed94c;
+    border-bottom-width: 1px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    width: 100%;
+}
+.film_list a {
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+}
+.film_list .stage > .stage_info.active {
+    background: #fed94c;
+    position: relative;
+    z-index: 99;
+    max-height: 40px;
+    text-align: center;
+} 
+.film_list .stage > .stage_info.active div {
+    color: #000;
+} 
+.film_list .stage > .stage_info.active a {
+    color: #000;
+} 
+.film_list .stage > .stage_info > .time-array {
+    position: absolute;
+    margin-top: 45px;
+    transition: .5s;
+    opacity: 0;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 60px;
+    background: #fed94c;
+}
+.film_list .stage > .stage_info.active > .time-array {opacity:1;margin-top:45px;}
+.film_list .stage > .stage_info > .time-array:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 0;
+    height: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #fed94c transparent;
+}
+.film_list .stage > .stage_info > .time-array * {font-size:12px;display:block;}
+.movie_img {
+    height: 100%;
+    max-width: 125px;
+    max-height: 180px;
+    min-width: 125px;
+    min-height: 180px;
+}
+.movie_img img {
+    width: 100%;
+    height: 100%;
+}
+.infor-menu > .subtitle {
+    border-top: solid 1px #d21126;
+    text-align: left !important;
+}
+.infor-menu > .subtitle:active:before,
+.infor-menu > .subtitle:hover:before {
+    content: none !important;
+}
+.infor-menu > .subtitle > span {
+    background-color: #d21126;
+    color: white;
+    font-size: 16px;
+    padding: 5px 9px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #717171;
+    border-radius: 10px;
+}
+@media(max-width: 1500px) {
+    .film_list .stage > div {
+        width: calc(16%);
+    }
+}
+@media(max-width: 1350px) {
+    .date_pre_div, .date_next_div {
+        padding-top: 15px;
+    }
+    .content {
+        max-height: 70vh; 
+        overflow-x: hidden; 
+        overflow-y: auto;
+    }
+    .film_list {
+        margin-top: 52px;
+    }
+    .film_list .stage > div {
+        width: calc(25%);
+    }
+    .film_list .list {
+        display: unset;
+        border-bottom-style: unset;
+        padding-top: 10px;
+    }
+    .film_list .list > .stage {
+        border-bottom-style: solid;
+        border-color: #fed94c;
+        border-bottom-width: 1px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+    .film_list .movie_info {
+        width: 100%;
+        padding-top: 10px;
+    }
+    .container-fluid {
+        overflow-y: hidden;
+        position: relative;
+    }
+}
+@media(max-width: 768px) {
+    .container-fluid {
+        overflow-y: hidden;
+        position: relative;
+    }
+    .infor-menu > .subtitle {
+        border-top: solid 1px black;
+    }
+    .infor-menu > .subtitle > span {
+        background-color: black;
+    }
+}
+@media(max-width: 600px) {
+    .content {
+        max-height: 60vh; 
+    }
+}
+@media(min-width: 430px) and (max-width: 600px) {
+    .content {
+        max-height: 70vh; 
+    }
+}
+@media(max-width: 430px) {
+    .content {
+        max-height: 50vh; 
+    }
+    .text-center {
+        display: unset;
+    }
+}
+@media(max-width: 375px) {
+    .content {
+        max-height: 44vh; 
+    }
+    .text-center {
+        display: unset;
+    }
+}
+</style>
+<script>
+var vm = null;
+
+$(document).ready(function () {
+    theater_api = $('input[name=theater_api]').val();
+    theater_id = $('input[name=theater_id]').val();
+    is_connect = $('input[name=is_connect]').val() == 'True';
+
+    if (!is_connect) {
+        warning("功能暫停使用", "red", "index.aspx?TheaterId=" + theater_id);
+        return false;
+    }
+
+    vm = new Vue({
+        el: ".section",
+        data: {
+            dateByMovie: [],
+            dateByStage: [],
+            selected_date: dayjs().add(-6, "hours").format("YYYY-MM-DD"),
+            selectMovie: '',
+            selectField: '',
+            selectDate: '',
+            dateList: [],
+            isShow: true,
+            type: '',
+            SpecialHallsOfTheater: [],
+            theater_id: theater_id,
+            allSpecialHalls: {
+                'IMAX': 'IMAX',
+                'LUXE': 'LUXE',
+                'MX4D': 'MX4D',
+                'BOOM': 'boomboom'
+            }
+        },
+        methods: {
+            getImgUrl: function ($imgUrl) {
+                return "https://" + theater_api + "/movie_group_img/" + $imgUrl[2] + "/" + $imgUrl[3];
+            },
+            changeDetail: function($type) {
+                if ($type == this.type) return;
+
+                if ($type == 'ComingSoon') {
+                    window.location.href = `film.aspx?TheaterId=${theater_id}&type=${$type}`;
+                    return;
+                }
+
+                window.location.href = `film_list.aspx?TheaterId=${theater_id}&type=${$type}`;
+            },
+            compareTime: function(oldDate) {
+                return dayjs().isAfter(oldDate)
+            },
+            htmldecode: function (text) {
+                var div = document.createElement('div');
+                div.innerHTML = text;
+                return div.innerText || div.textContent;
+            },
+            getIcon: function (id) { 
+                $file_ext = (theater_id == 3 && id == 26) ? 'jpg' : 'png';
+                return `https://img.in89cinemax.com/images/hall_icon/${theater_id}/hall_icon_${id}.${$file_ext}`;
+            },
+            getMovies: function (movies) {
+                this.dateByMovie = movies;
+            },
+            getStages: function (stages) {
+                if (this.type == 'Hot') {
+                    this.dateByStage = stages;
+                    return;
+                }
+
+                let movie_ids = Object.keys(this.dateByMovie),
+                    result = {};
+
+                for (let date in stages) 
+                for (let start_date in stages[date]) 
+                for (let cn_name in stages[date][start_date]) 
+                for (let movie_id in stages[date][start_date][cn_name]) 
+                for (let stage of stages[date][start_date][cn_name][movie_id]) {   
+                    let check = movie_ids.includes(movie_id);
+
+                    let title_exp = /^spec_(.*)/.exec(this.type);
+                    if (title_exp != null) {
+                        check &&= stage['attributes'].includes(title_exp[1]);
+                    }
+                    
+                    if (this.SpecialHallsOfTheater.includes(this.type)) {
+                        for (const [k_hall, v_hall] of Object.entries(this.allSpecialHalls)) {
+                            check = v_hall == this.type && stage['theater_film_name'].includes(k_hall);
+                            if (check) break;
+                        }
+                    }
+
+                    if (check) {
+                        if (!result.hasOwnProperty(date)) 
+                            result[date] = {};
+
+                        if (!result[date].hasOwnProperty(start_date)) 
+                            result[date][start_date] = {};
+
+                        if (!result[date][start_date].hasOwnProperty(cn_name)) 
+                            result[date][start_date][cn_name] = {};
+
+                        if (!result[date][start_date][cn_name].hasOwnProperty(movie_id))
+                            result[date][start_date][cn_name][movie_id] = [];
+
+                        result[date][start_date][cn_name][movie_id].push(stage);
+                    }
+                }
+
+                this.dateByStage = result;
+            },
+            getPageType: function () {
+                this.type = new URL(window.location.href).searchParams.get('type'); 
+                if (this.type == null) this.type = 'Hot';
+            },            
+            getSpecialHallsOfTheater: function () {
+                let hallsOfTheater = api({method: 'listRooms'}).data,
+                    rooms = Object.entries(hallsOfTheater).map(room => { return room[1].name });
+
+                this.SpecialHallsOfTheater = Object.entries(this.allSpecialHalls).filter(function(v_hall, k_hall) {
+                    return rooms.find(room => { return room.includes(v_hall[0]) });
+                }).map(item => { return item[1]; });
+            },
+            showVer: function(attributes) {
+                return this.SpecialHallsOfTheater.includes(this.type) && attributes == '' ? ' (一般版)' : '';
+            },
+            changePage: function(active) {
+                document.querySelectorAll(".stage_info.active").forEach(function(el) {
+                    el.classList.remove("active");
+                });
+
+                this.selectDate = "";
+                this.selectField = "";
+
+                let index = this.dateList.indexOf(this.selected_date),
+                    cnt = this.dateList.length;
+
+                if (active == 'prev') {
+                    index = index - 1 < 0 ? cnt - 1 : index - 1;
+                } else {
+                    index = index + 1 > cnt - 1 ? 0 : index + 1;
+                }
+
+                this.selected_date = this.dateList[index];
+            },
+            toDetailURIConcat: function(data) {
+                return 'film_detail.aspx?TheaterId=2&TheaterName=高雄鹽埕_in89駁二電影院'
+                 + '&select_movie=' + encodeURIComponent(data['movie_group_name']) 
+                 + '-' + encodeURIComponent(data['movie_play_desc']) 
+                 + '-' + encodeURIComponent(data['movie_lang_desc']) 
+                 + '&movie_id=' + data['movie_id']
+            },
+            send: function() {
+                if (this.selectDate == "" || this.selectField == "") {
+                    warning("場次未選擇", "red");
+                    return;
+                }
+
+                if ($('input[name="movie_item"]').val() != "") {
+                    localStorage.setItem('movie', $('input[name="movie_item"]').val());
+                    localStorage.setItem('stage', this.selectField);
+                    
+                    $(".sub-form").attr("action", "order_field.aspx?TheaterId=" + theater_id 
+                        + "&TheaterName=" + $("input[name=TheaterName]").val() 
+                        + "&select_movie=" + encodeURIComponent($(".stage > .active > a").data("movie_name"))
+                    ).submit();
+                }
+            },
+            showInfo: function(event) {
+                let dataset = event.target.dataset;
+
+                document.querySelectorAll(".stage_info.active").forEach(function(el) {
+                    el.classList.remove("active");
+                });
+
+                if (dayjs().isAfter(dataset.web_booking_deadline) || dataset.allow_sell_web == "0") {
+                    this.selectDate = '';
+                    this.selectField = '';
+                    this.selectMovie = '';
+                    return;
+                }
+
+                document.querySelector("#stage_info_" + dataset.stage).classList.add("active");
+
+                this.selectDate = this.selected_date;
+                this.selectField = dataset.stage;
+                this.selectMovie = dataset.movie;
+            }
+        },
+        mounted: function() {
+            let $data = api({method: 'getStagesByDate'});
+
+            if (Object.keys($data.data).length === 0) {
+                warning($data.cn_code, 'red');
+                return;
+            }
+
+            $data = $data.data;
+
+            this.getSpecialHallsOfTheater();
+            this.getPageType();
+
+            this.getMovies($data.movies);
+            this.getStages($data.stages);
+
+            this.dateList = Object.keys(this.dateByStage);
+            this.dateList.sort();
+
+            if (this.dateList.length <= 0) {
+                this.isShow = false;
+            }
+
+            if (this.dateList.length > 0) {
+                this.selected_date = this.dateList[0];
+            }
+        }
+    });
+});
+</script>
+
+<footer class="footer">
+    <div class="scroll-top">
+        Top
+    </div>
+    <div class="text-center">
+        <a href="about.aspx?TheaterId=2">關於in89</a>
+        <a href="privacy.aspx?TheaterId=2">隱私權政策</a>
+    </div>
+    <div class="text-center">
+        <div>地址：台灣高雄市鹽埕區大勇路5-1, 5-2號</div>
+        <div>客服專線：07-5328989</div>
+        <div>(服務時間 11:00~20:00)</div>
+        <div>Copyright © 2013 in89 Digital Cinemax.</div>
+        <div>All Right Reserved. Powered by D_CINEMA.Co</div>
+    </div>
+</footer>
+
+<input type="hidden" name="theater_id" value="2" />
+<input type="hidden" name="theater_api" value="pier2.in89.com.tw" />
+</form>
+</body>
+</html>
+<script src="https://img.in89cinemax.com/js/cookieconsent.min.js" defer></script>
+<script>window.addEventListener("load",function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#f9f9f9"},"button":{"background":"#f9f9f9","text":"#000000"}},"position":"bottom","content":{"href":"https://www.in89cinemax.com/privacy.aspx?TheaterId=2","message":"為提供最佳服務，本站使用cookies，若繼續瀏覽或操作網站，將視為同意使用。","button":"同意"}})});</script>
+<script>
+    $(document).ready(function() {
+        theater_id = $('input[name=theater_id]').val();
+        theater_api = $('input[name=theater_api]').val();
+        console.clear();
+    });
+</script>
+
+<script>
+$(".footer").hide();
+</script>
