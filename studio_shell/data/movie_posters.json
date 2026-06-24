@@ -1724,7 +1724,7 @@
     "genre": "劇情"
   },
   "絕地戰警：生死與共": {
-    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/47E5JMJ6g5MsP8a4K5Y4qU8VhQW.jpg",
+    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
     "source": "https://www.themoviedb.org/movie/573435-bad-boys-ride-or-die",
     "status": "found",
     "year": 2024,
@@ -1786,11 +1786,74 @@
     "year": 2025,
     "genre": "動作"
   },
-  "絕地戰警：生死與共": {
-    "poster": "https://media.themoviedb.org/t/p/w300_and_h450_face/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg",
-    "source": "https://www.themoviedb.org/movie/573435-bad-boys-ride-or-die",
-    "status": "found",
-    "year": 2024,
-    "genre": "動作"
+  "名偵探柯南 高速公路的墮天使": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2740/2740_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%90%8D%E5%81%B5%E6%8E%A2%E6%9F%AF%E5%8D%97%20%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF%E7%9A%84%E5%A2%AE%E5%A4%A9%E4%BD%BF-2D%E6%95%B8%E4%BD%8D-%E6%97%A5%E8%AA%9E&movie_id=3058",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "美夢": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2769/2769_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E7%BE%8E%E5%A4%A2-2D%E6%95%B8%E4%BD%8D-%E8%8B%B1%E8%AA%9E&movie_id=3092",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "寶貝對不起": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2768/2768_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%AF%B6%E8%B2%9D%E5%B0%8D%E4%B8%8D%E8%B5%B7-2D%E6%95%B8%E4%BD%8D-%E8%8B%B1%E8%AA%9E&movie_id=3091",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "失樂園(2026)": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2741/2741_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%A4%B1%E6%A8%82%E5%9C%92(2026)-2D%E6%95%B8%E4%BD%8D-%E5%9C%8B%E8%AA%9E&movie_id=3059",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "後室": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2736/2736_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%BE%8C%E5%AE%A4-2D%E6%95%B8%E4%BD%8D-%E8%8B%B1%E8%AA%9E&movie_id=3052",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "屍速禁區": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2748/2748_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%B1%8D%E9%80%9F%E7%A6%81%E5%8D%80-2D%E6%95%B8%E4%BD%8D-%E9%9F%93%E8%AA%9E&movie_id=3066",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "傳奇女伶 高菊花": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2743/2743_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E5%82%B3%E5%A5%87%E5%A5%B3%E4%BC%B6%20%E9%AB%98%E8%8F%8A%E8%8A%B1-2D%E6%95%B8%E4%BD%8D-%E5%9C%8B%E8%AA%9E&movie_id=3061",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "神木之島": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2749/2749_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E7%A5%9E%E6%9C%A8%E4%B9%8B%E5%B3%B6-2D%E6%95%B8%E4%BD%8D-%E5%9C%8B%E8%AA%9E&movie_id=3067",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "飛吧！熊鷹": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2721/2721_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E9%A3%9B%E5%90%A7%EF%BC%81%E7%86%8A%E9%B7%B9-2D%E6%95%B8%E4%BD%8D-%E5%9C%8B%E8%AA%9E&movie_id=3036",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
+  },
+  "穿著Prada的惡魔2": {
+    "poster": "https://pier2.in89.com.tw/movie_group_img/2696/2696_125.jpg",
+    "source": "https://www.in89cinemax.com/film_detail.aspx?TheaterId=2&TheaterName=%E9%AB%98%E9%9B%84%E9%B9%BD%E5%9F%95_in89%E9%A7%81%E4%BA%8C%E9%9B%BB%E5%BD%B1%E9%99%A2&select_movie=%E7%A9%BF%E8%91%97Prada%E7%9A%84%E6%83%A1%E9%AD%942-2D%E6%95%B8%E4%BD%8D-%E8%8B%B1%E8%AA%9E&movie_id=3010",
+    "status": "in89",
+    "year": 2026,
+    "genre": "其他"
   }
 }
