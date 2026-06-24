@@ -14,6 +14,11 @@ if str(PROJECT_ROOT) not in sys.path:
 from studio_shell.page_shell import page_shell
 from studio_shell.shell_ui import inject_style
 
+# ---------------------------------------------------------------------------
+# 從 in89 同步片單
+# ---------------------------------------------------------------------------
+from studio_shell.scripts.update_movies_from_in89 import update_from_in89
+
 POSTER_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "movie_posters.json"
 FAVORITES_DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "movie_favorites.json"
 if POSTER_DATA_PATH.exists():
@@ -346,6 +351,16 @@ MOVIES = [
     {"title": "小小兵＆大怪獸", "genre": "動畫", "year": 2026, "intro": "小小兵們再度帶來吵鬧又失控的大冒險，這次還要面對體型與破壞力都更加驚人的新角色。電影走熱鬧搞笑路線，節奏輕快，也很適合家庭觀眾。"},
     {"title": "超少女", "genre": "動作", "year": 2026, "intro": "全新超級英雄作品把超少女帶上大銀幕，在龐大的宇宙危機與個人成長之間展開冒險。電影主打飛行戰鬥、科幻視覺與英雄內心掙扎，是本月很有話題性的商業大片。"},
     {"title": "電影版教場：驪歌", "genre": "懸疑", "year": 2026, "intro": "警察學校背景下再次出現壓力與謎團交織的事件，角色們在紀律、真相與人性之間做出選擇。電影延續系列冷峻氛圍，懸疑感與人物張力都很強。"},
+    {"title": "名偵探柯南 高速公路的墮天使", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "美夢", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "寶貝對不起", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "失樂園(2026)", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "後室", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "屍速禁區", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "傳奇女伶 高菊花", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "神木之島", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "飛吧！熊鷹", "genre": "其他", "year": 2026, "intro": ""},
+    {"title": "穿著Prada的惡魔2", "genre": "其他", "year": 2026, "intro": ""},
 ]
 
 
@@ -448,9 +463,28 @@ def render_main() -> str:
     missing_duration_count = sum(1 for movie in MOVIES if get_movie_duration(movie) is None)
 
     st.write("輸入片名或選擇類型，搜尋近五年在台灣上映的電影。")
+
+    update_col, update_info_col = st.columns([1.2, 2.8])
+    with update_col:
+        if st.button("🔄 更新 in89 片單", use_container_width=True):
+            with st.spinner("正在從 in89 與 TMDB 同步片單..."):
+                try:
+                    stats = update_from_in89()
+                    if stats["new_count"]:
+                        st.success(
+                            f"已新增 {stats['new_count']} 部電影：" +
+                            "、".join(stats["added"])
+                        )
+                    else:
+                        st.info("目前 in89 片單已全數收錄，沒有需要新增的電影。")
+                except Exception as e:
+                    st.error(f"同步失敗：{e}")
+            st.rerun()
+    with update_info_col:
+        st.caption("按下後會從 in89 駁二電影院抓取現正熱映片單，並自動到 TMDB 補齊年份、類型、簡介與海報。")
+
     st.markdown("#### 搜尋設定")
-    with st.container(border=True):
-        st.markdown("**基本搜尋**")
+    with st.expander("基本搜尋", expanded=False):
         keyword = st.text_input("搜尋電影名稱", placeholder="例如：鬼、愛情、青春")
 
         genres = ["全部"] + sorted({movie["genre"] for movie in MOVIES})
@@ -463,8 +497,7 @@ def render_main() -> str:
         companion_options = ["不篩選"] + list(COMPANION_FILTERS.keys())
         selected_companion = st.radio("和誰一起看？", companion_options, index=0)
 
-    with st.container(border=True):
-        st.markdown("**進階篩選**")
+    with st.expander("進階篩選", expanded=False):
         selected_sort = st.selectbox("排序方式", list(SORT_OPTIONS.keys()))
         selected_year_range = st.slider("上映年份", min_year, max_year, (min_year, max_year))
         if duration_bounds:
