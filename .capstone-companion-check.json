@@ -1,0 +1,13 @@
+{
+  "vcr-imagegen": "ok",
+  "pptx": "ok",
+  "vcr_key": "missing",
+  "node": "ok",
+  "pptxgenjs": "ok",
+  "playwright": "pending",
+  "sharp": "ok",
+  "python-pptx": "ok",
+  "python-docx": "ok",
+  "checked_at": "2026-06-24",
+  "notes": "playwright 需在 Step 6b 前完成；VCR key 需在 Step 7 前完成"
+}
